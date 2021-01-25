@@ -1,0 +1,29 @@
+{
+  "name": "self-dj",
+  "version": "1.0.0",
+  "description": "...",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": "8.0.x",
+    "npm": "6.0.x"
+  },
+  "scripts": {
+    "sass": "gulp sass:watch",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AtanasRaykovPapucharov/self-dj.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AtanasRaykovPapucharov/self-dj/issues"
+  },
+  "homepage": "https://github.com/AtanasRaykovPapucharov/self-dj#readme"
+}

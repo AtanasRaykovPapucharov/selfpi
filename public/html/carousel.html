@@ -1,0 +1,110 @@
+<style>
+    #mudras {
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    #carousel-3 {
+        display: none;
+        margin: 50px auto;
+        width: 360px;
+        height: 211px;
+        box-shadow: 0 0 10px black;
+        overflow: hidden;
+    }
+
+    #carousel-3 ul.items {
+        padding: 0;
+        width: 2880px;
+        list-style: none;
+    }
+
+    #carousel-3 ul.items li.item {
+        padding: 0;
+        margin-top: -17px;
+        float: left;
+        opacity: 0.7;
+    }
+
+    #carousel-3 ul.items li.item:hover {
+        position: relative;
+        opacity: 1;
+    }
+
+    #carousel-3 ul.items li.item img {
+        width: 119px;
+        height: 211px;
+    }
+
+    #carousel-3 ul.items li.item img:hover {
+        border-left: 1px solid grey;
+        border-right: 1px solid grey;
+    }
+
+    #carousel-3 ul.items li.item img:hover {
+        width: 125px;
+    }
+
+    @media only screen and (min-width: 960px) {
+        #carousel-3 {
+            width: 600px;
+            height: 256px;
+        }
+
+        #carousel-3 ul.items {
+            padding: 0;
+            width: 4800px;
+        }
+
+        #carousel-3 ul.items li.item img {
+            width: 199px;
+            height: 256px;
+        }
+
+        #carousel-3 ul.items li.item img:hover {
+            width: 205px;
+        }
+    }
+</style>
+<div id="mudras">
+    <img src="../images/mudras.png" alt="" width="30%">
+</div>
+<div id="carousel-3">
+    <ul class="items">
+        {{#each data}}
+        <li class="item">
+            <img id={{this.name}} src={{this.img}}>
+        </li>
+        {{/each}}
+    </ul>
+</div>
+<script>
+    $(() => {
+        setInterval(() => {
+            $("#carousel-3 ul.items").animate({
+                marginLeft: "-33.3%"
+            }, 2000, function () {
+                $("#carousel-3 ul.items li.item:last").after($(
+                    "#carousel-3 ul.items li.item:first"))
+                $(this).css({
+                    "margin-left": "0"
+                })
+            })
+        }, 5000)
+
+        $("#carousel-3 ul.items li.item img").on("click", function () {
+            alert($(this).attr("id"))
+        })
+
+        let isMudraVisible = false
+        // mudras
+        $('#mudras').on('click', function () {
+            isMudraVisible = !isMudraVisible
+            if (isMudraVisible) {
+                $('#carousel-3').fadeIn()
+            } else {
+                $('#carousel-3').fadeOut()
+            }
+        })
+    })
+</script>
